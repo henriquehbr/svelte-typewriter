@@ -21,7 +21,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "yarn prettier",
+			"pre-commit": "yarn prettier && git add .",
 			"pre-push": "yarn prettier"
 		}
 	},
@@ -31,7 +31,7 @@
 		"prettier": "^2.0.5",
 		"prettier-plugin-svelte": "^1.1.0"
 	},
-	"peerDependencies": {
+	"dependencies": {
 		"svelte": "^3.24.0"
 	}
 }

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.12...HEAD)
+
+- BREAKING CHANGES: replace mode props with a single one [`c4dfa4a`](https://github.com/henriquehbr/svelte-typewriter/commit/c4dfa4a00743539d20ae4301cbdb618a1d3a337e)
+- chore: update changelog [`26588dd`](https://github.com/henriquehbr/svelte-typewriter/commit/26588ddb276c8fde5a2bbc0406af1c27d44618ca)
+
 #### [v2.1.12](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.11...v2.1.12)
 
 > 18 July 2020
