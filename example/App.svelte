@@ -2,7 +2,7 @@
 	import Typewriter from '../Typewriter'
 </script>
 
-<Typewriter mode="loop">
+<Typewriter>
 	<h1>Foobar</h1>
 	<p>Hello World!</p>
 	<nav>

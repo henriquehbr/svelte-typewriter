@@ -4,7 +4,8 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.12...HEAD)
 
-- BREAKING CHANGES: replace mode props with a single one [`c4dfa4a`](https://github.com/henriquehbr/svelte-typewriter/commit/c4dfa4a00743539d20ae4301cbdb618a1d3a337e)
+- fix: change loop mode behavior to use all child tags [`846366c`](https://github.com/henriquehbr/svelte-typewriter/commit/846366c01f746d13a6b9caf49ce5984e1176a157)
+- BREAKING CHANGES: replace mode props with a single one [`7c1d7dc`](https://github.com/henriquehbr/svelte-typewriter/commit/7c1d7dc85e6a42527e97e703f2d44e57fe4b2d14)
 - chore: update changelog [`26588dd`](https://github.com/henriquehbr/svelte-typewriter/commit/26588ddb276c8fde5a2bbc0406af1c27d44618ca)
 
 #### [v2.1.12](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.11...v2.1.12)
