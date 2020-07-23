@@ -36,7 +36,6 @@ You need to import the Svelte component, and wrap your elements with the `<Typew
 
 <Typewriter>
 	<h1>Testing the typewriter effect</h1>
-	<h2>The typewriter effect cascades by default</h2>
 	<p>Lorem ipsum dolor sit amet consectetur</p>
 </Typewriter>
 ```
@@ -52,11 +51,13 @@ You need to import the Svelte component, and wrap your elements with the `<Typew
 
 You can control the behavior of the typewriter effect by passing specific values to the prop `mode`, the table below contains information about all modes:
 
+> **Warning:** in order to reduce code and avoid the possibility of calling multiple modes simultaneously on the same component, from version 3.x onwards, the `Typewriter` component mode is defined with the prop `mode`, (`mode="cascade"` or `mode="loop"`) instead the previous boolean props with with their respective mode name (`<Typewriter cascade />` or `<Typewriter loop />`)
+
 | Value     | Description                                                                                              |                                                                  |
 | --------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | `cascade` | Apply animation on all elements sequentially instead of simultaneously                                   | [DEMO](https://svelte.dev/repl/9ddb89942e954a2a90b553356952ff46) |
 | `loop`    | Cycles the animation between the children elements of the parent `Typewriter` component                  | [DEMO](https://svelte.dev/repl/e8b82d83f6c2444b97619238404bcd4d) |
-| `default` | Apply animation simultaneously on all elements, as opposed to the sequential animation of `cascade` mode | [DEMO](https://svelte.dev/repl/9dfb73bfa9b34aeea4740fa23f5cde8a) |
+| `default` | Apply animation simultaneously on all elements, as opposed to the sequential animation of `cascade` mode | [DEMO](https://svelte.dev/repl/7c1ef46db4ac45beaa2bd069e04677c6) |
 
 ## Event listeners
 
