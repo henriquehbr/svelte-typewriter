@@ -42,10 +42,11 @@ You need to import the Svelte component, and wrap your elements with the `<Typew
 
 ## Props
 
-| Prop       | Type                  | Description                                                                                                                                                                     | Default |                                                                  |
-| ---------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------- |
-| `interval` | `number` or `array`   | The interval in milliseconds between each letter, you can also pass a array of distinc intervals to mimic human typing                                                          | `30`    | [DEMO](https://svelte.dev/repl/eb6caec159cf454b8f2bc98f3444fa8c) |
-| `cursor`   | `boolean` or `string` | Enables/disables the terminal cursor on the Typewriter animation, and also, allows you to pass any valid color name, hex code, rgb/rgba valid values to change the cursor color | `true`  | [DEMO](https://svelte.dev/repl/6008b5aaff6f46e5909c63e795a19f5a) |
+| Prop           | Type                  | Description                                                                                                                                                                     | Default |                                                                  |
+| -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------- |
+| `interval`     | `number` or `array`   | The interval (in milliseconds) between each letter, you can also pass a array of distinct intervals to mimic human typing                                                       | `30`    | [DEMO](https://svelte.dev/repl/eb6caec159cf454b8f2bc98f3444fa8c) |
+| `loopInterval` | `number`              | The interval (in milliseconds) between each loop iteration                                                                                                                      | `1500`  | [DEMO](https://svelte.dev/repl/31950dd108344e70a30df148a9f7dde6) |
+| `cursor`       | `boolean` or `string` | Enables/disables the terminal cursor on the Typewriter animation, and also, allows you to pass any valid color name, hex code, rgb/rgba valid values to change the cursor color | `true`  | [DEMO](https://svelte.dev/repl/6008b5aaff6f46e5909c63e795a19f5a) |
 
 ## Modes
 
