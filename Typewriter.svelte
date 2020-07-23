@@ -39,6 +39,7 @@
 			currentNode.textContent += letter
 			const fullyWritten = mode === 'loop' && currentNode.textContent === text.join('')
 			if (fullyWritten) {
+				dispatch('done')
 				await sleep(loopInterval)
 				while (currentNode.textContent !== '') {
 					currentNode.textContent = currentNode.textContent.slice(0, -1)
@@ -72,7 +73,6 @@
 				await typewriterEffect({ currentNode: loopParagraph, text })
 				node.childNodes.forEach(el => el.remove())
 			}
-			dispatch('done')
 		}
 	}
 

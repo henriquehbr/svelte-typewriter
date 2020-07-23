@@ -6,8 +6,9 @@ All notable changes to this project will be documented in this file. Dates are d
 
 - fix: change loop mode behavior to use all child tags [`092075e`](https://github.com/henriquehbr/svelte-typewriter/commit/092075ed658a91de657d37db388c5340f3a36211)
 - BREAKING CHANGES: replace mode props with a single one [`7c1d7dc`](https://github.com/henriquehbr/svelte-typewriter/commit/7c1d7dc85e6a42527e97e703f2d44e57fe4b2d14)
+- docs: add warning about breaking changes on mode props [`3596559`](https://github.com/henriquehbr/svelte-typewriter/commit/35965591ac7c4b806f8eb4e6f0d02e038922d0d5)
 - chore: update changelog [`26588dd`](https://github.com/henriquehbr/svelte-typewriter/commit/26588ddb276c8fde5a2bbc0406af1c27d44618ca)
-- docs: add warning about breaking changes on mode props [`02b5df8`](https://github.com/henriquehbr/svelte-typewriter/commit/02b5df8945f5240e0b3b64b553d50e107f8cbfa4)
+- fix: solve problem with on:done listener on loop mode [`38a9eda`](https://github.com/henriquehbr/svelte-typewriter/commit/38a9eda585673c001fefb32ab665f2915afaa01f)
 
 #### [v2.1.12](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.11...v2.1.12)
 
