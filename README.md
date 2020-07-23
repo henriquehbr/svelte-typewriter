@@ -7,6 +7,8 @@
 
 [DEMO](https://svelte.dev/repl/9dfb73bfa9b34aeea4740fa23f5cde8a)
 
+> **Notice:** this is the documentation for version 3.0, you can still check out the docs for older versions like [2.0](https://github.com/henriquehbr/svelte-typewriter/tree/2.x) and even [1.0](https://github.com/henriquehbr/svelte-typewriter/tree/1.x)
+
 ## Summary
 
 - [Installation](#Installation)
@@ -50,9 +52,9 @@ You need to import the Svelte component, and wrap your elements with the `<Typew
 
 ## Modes
 
-You can control the behavior of the typewriter effect by passing specific values to the prop `mode`, the table below contains information about all modes:
-
 > **Warning:** in order to reduce code and avoid the possibility of calling multiple modes simultaneously on the same component, from version 3.x onwards, the `Typewriter` component mode is defined with the prop `mode`, (`mode="cascade"` or `mode="loop"`) instead the previous boolean props with with their respective mode name (`<Typewriter cascade />` or `<Typewriter loop />`)
+
+You can control the behavior of the typewriter effect by passing specific values to the prop `mode`, the table below contains information about all modes:
 
 | Value     | Description                                                                                              |                                                                  |
 | --------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |

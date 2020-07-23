@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.12...HEAD)
+#### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v3.0.0...HEAD)
+
+- docs: add links for documentation of older versions [`078d0cd`](https://github.com/henriquehbr/svelte-typewriter/commit/078d0cde9aea0094992d76f2b2fa0e11ebc58473)
+
+### [v3.0.0](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.12...v3.0.0)
+
+> 22 July 2020
 
 - fix: change loop mode behavior to use all child tags [`092075e`](https://github.com/henriquehbr/svelte-typewriter/commit/092075ed658a91de657d37db388c5340f3a36211)
 - BREAKING CHANGES: replace mode props with a single one [`7c1d7dc`](https://github.com/henriquehbr/svelte-typewriter/commit/7c1d7dc85e6a42527e97e703f2d44e57fe4b2d14)
