@@ -4,6 +4,7 @@
 	export let interval = 30
 	export let loopInterval = 1500
 	export let cursor = true
+	export let delay = 0
 
 	let node
 	let elements = []
@@ -78,14 +79,11 @@
 
 	onMount(() => {
 		getElements(node)
-		switch (mode) {
-			case 'cascade':
-			case 'default':
-				init()
-				break
-			case 'loop':
-				loop()
-		}
+		elements.forEach(({ currentNode }) => currentNode.textContent = '')
+
+		setTimeout(() => {
+			mode == 'loop' ? loop() : init()
+		}, delay);
 	})
 
 	onDestroy(() => (mode = 'default'))
