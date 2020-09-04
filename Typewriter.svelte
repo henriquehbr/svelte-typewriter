@@ -5,6 +5,7 @@
 	export let loopInterval = 1500
 	export let cursor = true
 	export let delay = 0
+	export let scrambleCount=20
 
 	let node
 	let elements = []
@@ -15,6 +16,7 @@
 	const rng = (min, max) => Math.floor(Math.random() * (max - min) + min)
 	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
 	const typingInterval = async () => await sleep(interval[rng(0, interval.length)] || interval)
+	const randomize = node => Math.random().toString(36).substring(2, node.textContent.length+2)
 
 	const getElements = parentElement => {
 		const treeWalker = document.createTreeWalker(parentElement, NodeFilter.SHOW_ELEMENT)
@@ -77,12 +79,35 @@
 		}
 	}
 
+	const scrambleOne = async (element) => {
+		elements.forEach(({ currentNode }) => { currentNode.textContent = randomize(currentNode) })
+		const { currentNode, text } = element;
+		const initial = [...text];
+
+		for (let i=0; i<scrambleCount; i++) {
+			currentNode.textContent = randomize(currentNode)
+			await sleep(interval)
+		}
+
+		dispatch('done');
+		currentNode.textContent = initial.join("");
+	}
+	const scramble = () => {
+		elements.forEach(element => scrambleOne(element))
+	}
+
 	onMount(() => {
 		getElements(node)
-		elements.forEach(({ currentNode }) => currentNode.textContent = '')
+
+		// If mode != scramble, clear the texts
+		mode != 'scramble' && elements.forEach(({ currentNode }) => currentNode.textContent = '')
 
 		setTimeout(() => {
-			mode == 'loop' ? loop() : init()
+			switch (mode) {
+				case 'loop':     loop(); break
+				case 'scramble': scramble(); break
+				default: init()
+			}
 		}, delay);
 	})
 
