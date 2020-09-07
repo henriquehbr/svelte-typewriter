@@ -126,7 +126,6 @@
 		elements.forEach(async (element) => {
 			const { currentNode, text } = element
 			const foundIndexes = []
-			let i = 0
 
 			do {
 				currentNode.textContent = randomize(currentNode.textContent, foundIndexes)
@@ -138,9 +137,8 @@
 					}
 				}
 
-				i += 1
 				await sleep(interval)
-			} while (currentNode.textContent != text.join("") && i < 50)
+			} while (currentNode.textContent != text.join(""))
 
 			dispatch('done')
 			currentNode.textContent = text.join("")
