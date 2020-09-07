@@ -17,7 +17,7 @@
 	const rng = (min, max) => Math.floor(Math.random() * (max - min) + min)
 	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
 	const typingInterval = async () => sleep(interval[rng(0, interval.length)] || interval)
-	const randomize = node => Math.random().toString(36).substring(2, node.textContent.length+2)
+	const randomize = () => Math.random().toString(36).slice(2)
 
 	const getElements = parentElement => {
 		const treeWalker = document.createTreeWalker(parentElement, NodeFilter.SHOW_ELEMENT)
@@ -113,12 +113,10 @@
 	}
 
 	const scrambleMode = () => {
-		elements.forEach(({ currentNode }) => { currentNode.textContent = randomize(currentNode) })
-
 		elements.forEach(async (element) => {
 			const { currentNode, text } = element
 			for (let i=0; i<scrambleCount; i++) {
-				currentNode.textContent = randomize(currentNode)
+				currentNode.textContent = randomize()
 				await sleep(interval)
 			}
 			dispatch('done')
