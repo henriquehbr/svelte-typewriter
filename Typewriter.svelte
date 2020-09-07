@@ -112,19 +112,19 @@
 		}
 	}
 
-	const scrambleOne = async (element) => {
+	const scrambleMode = () => {
 		elements.forEach(({ currentNode }) => { currentNode.textContent = randomize(currentNode) })
-		const { currentNode, text } = element;
-		const initial = [...text];
-		for (let i=0; i<scrambleCount; i++) {
-			currentNode.textContent = randomize(currentNode)
-			await sleep(interval)
-		}
-		dispatch('done');
-		currentNode.textContent = initial.join("");
-	}
-	const scrambleAll = () => {
-		elements.forEach(element => scrambleOne(element))
+
+		elements.forEach(async (element) => {
+			const { currentNode, text } = element;
+			const initial = [...text];
+			for (let i=0; i<scrambleCount; i++) {
+				currentNode.textContent = randomize(currentNode)
+				await sleep(interval)
+			}
+			dispatch('done');
+			currentNode.textContent = initial.join("");
+		})
 	}
 
 	onMount(() => {
@@ -137,7 +137,7 @@
 			if (loop) {
 				loopMode()
 			} else if (scramble) {
-				scrambleAll()
+				scrambleMode()
 			} else {
 				nonLoopMode()
 			}
