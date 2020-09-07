@@ -7,16 +7,6 @@
 
 [DEMO](https://svelte.dev/repl/9dfb73bfa9b34aeea4740fa23f5cde8a)
 
-> **Notice:** this is the documentation for version 3.0, you can still check out the docs for older versions like [2.0](https://github.com/henriquehbr/svelte-typewriter/tree/2.x) and even [1.0](https://github.com/henriquehbr/svelte-typewriter/tree/1.x)
-
-## Summary
-
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Props](#Props)
-- [Modes](#Modes)
-- [Event listeners](#Event-listeners)
-
 ## Installation
 
 ```bash
