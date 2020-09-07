@@ -7,6 +7,15 @@
 
 [DEMO](https://svelte.dev/repl/9dfb73bfa9b34aeea4740fa23f5cde8a)
 
+## Summary
+
+-   [Installation](#Installation)
+-   [Usage](#Usage)
+-   [Props](#Props)
+-   [Settings](#Settings)
+-   [Modes](#Modes)
+-   [Event listeners](#Event-listeners)
+
 ## Installation
 
 ```bash
@@ -28,32 +37,38 @@ You need to import the Svelte component, and wrap your elements with the `<Typew
 
 <Typewriter>
 	<h1>Testing the typewriter effect</h1>
+	<h2>The typewriter effect cascades by default</h2>
 	<p>Lorem ipsum dolor sit amet consectetur</p>
 </Typewriter>
 ```
 
 ## Props
 
-| Prop           | Type                  | Description                                                                                                                                                                     | Default |                                                                  |
-| -------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------- |
-| `interval`     | `number` or `array`   | The interval (in milliseconds) between each letter, you can also pass a array of distinct intervals to mimic human typing                                                       | `30`    | [DEMO](https://svelte.dev/repl/eb6caec159cf454b8f2bc98f3444fa8c) |
-| `loopInterval` | `number`              | The interval (in milliseconds) between each loop iteration                                                                                                                      | `1500`  | [DEMO](https://svelte.dev/repl/31950dd108344e70a30df148a9f7dde6) |
-| `cursor`       | `boolean` or `string` | Enables/disables the terminal cursor on the Typewriter animation, and also, allows you to pass any valid color name, hex code, rgb/rgba valid values to change the cursor color | `true`  | [DEMO](https://svelte.dev/repl/6008b5aaff6f46e5909c63e795a19f5a) |
+The `<Typewriter>` component can receive props that allows to manipulate the behavior of the resulting animation, these props are divided into 3 groups
 
-## Modes
+-   Settings: animation properties
+-   Modes: different styles of animation
+-   Event listeners: functions executed based on the condition of a trigger
 
-> **Warning:** in order to reduce code and avoid the possibility of calling multiple modes simultaneously on the same component, from version 3.x onwards, the `Typewriter` component mode is defined with the prop `mode`, (`mode="cascade"` or `mode="loop"`) instead the previous boolean props with with their respective mode name (`<Typewriter cascade />` or `<Typewriter loop />`)
+### Settings
 
-You can control the behavior of the typewriter effect by passing specific values to the prop `mode`, the table below contains information about all modes:
+| Prop       | Type                  | Description                                                                                                                                                                     | Default |                                                                  |
+| ---------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------- |
+| `interval` | `number` or `array`   | The interval in milliseconds between each letter, you can also pass a array of distinc intervals to mimic human typing                                                          | `30`    | [DEMO](https://svelte.dev/repl/eb6caec159cf454b8f2bc98f3444fa8c) |
+| `cursor`   | `boolean` or `string` | Enables/disables the terminal cursor on the Typewriter animation, and also, allows you to pass any valid color name, hex code, rgb/rgba valid values to change the cursor color | `true`  | [DEMO](https://svelte.dev/repl/6008b5aaff6f46e5909c63e795a19f5a) |
 
-| Value     | Description                                                                                              |                                                                  |
-| --------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `cascade` | Apply animation on all elements sequentially instead of simultaneously                                   | [DEMO](https://svelte.dev/repl/9ddb89942e954a2a90b553356952ff46) |
-| `loop`    | Cycles the animation between the children elements of the parent `Typewriter` component                  | [DEMO](https://svelte.dev/repl/e8b82d83f6c2444b97619238404bcd4d) |
-| `default` | Apply animation simultaneously on all elements, as opposed to the sequential animation of `cascade` mode | [DEMO](https://svelte.dev/repl/7c1ef46db4ac45beaa2bd069e04677c6) |
+### Modes
 
-## Event listeners
+You can control the behavior of the typewriter effect by passing specific props to the `<Typewriter>` component, the table below contains information about all modes:
 
-| Event     | Trigger                                                                                                           |                                                                  |
-| --------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `on:done` | Is executed at the end of the animation, if using `mode="loop"`, this event will be fired at the end of each loop | [DEMO](https://svelte.dev/repl/145cbf66c396497aa5338846077d53e0) |
+| Mode      | Type                  | Description                                                                                                                                                                                  | Default |                                                                  |
+| --------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------- |
+| `cascade` | `boolean`             | Apply animation on all elements sequentially instead of simultaneously                                                                                                                       | `false` | [DEMO](https://svelte.dev/repl/9ddb89942e954a2a90b553356952ff46) |
+| `loop`    | `boolean` or `number` | Cycles the animation between the children elements of the parent `Typewriter` component, if a number argument is passed, it's defined as the interval between each word (defaults to `1500`) | `false` | [DEMO](https://svelte.dev/repl/e8b82d83f6c2444b97619238404bcd4d) |
+| `default` |                       | Apply animation simultaneously on all elements, as opposed to the sequential animation of `cascade` mode                                                                                     | `true`  | [DEMO](https://svelte.dev/repl/9dfb73bfa9b34aeea4740fa23f5cde8a) |
+
+### Event listeners
+
+| Event     | Trigger                                                                                                             |                                                                  |
+| --------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `on:done` | Is executed at the end of the animation, if used with `loop` mode, this event will be fired at the end of each loop | [DEMO](https://svelte.dev/repl/145cbf66c396497aa5338846077d53e0) |
