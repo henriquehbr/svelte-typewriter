@@ -1,8 +1,9 @@
 <script>
 	import { onMount, createEventDispatcher, onDestroy } from 'svelte'
-	export let mode = 'default'
 	export let interval = 30
-	export let loopInterval = 1500
+	export let cascade = false
+	export let loop = false
+	export let scramble = false
 	export let cursor = true
 	export let delay = 0
 	export let scrambleCount=20
@@ -15,7 +16,7 @@
 	const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 	const rng = (min, max) => Math.floor(Math.random() * (max - min) + min)
 	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
-	const typingInterval = async () => await sleep(interval[rng(0, interval.length)] || interval)
+	const typingInterval = async () => sleep(interval[rng(0, interval.length)] || interval)
 	const randomize = node => Math.random().toString(36).substring(2, node.textContent.length+2)
 
 	const getElements = parentElement => {
@@ -40,10 +41,10 @@
 		currentNode.classList.add('typing')
 		for (const letter of text) {
 			currentNode.textContent += letter
-			const fullyWritten = mode === 'loop' && currentNode.textContent === text.join('')
+			const fullyWritten = loop && currentNode.textContent === text.join('')
 			if (fullyWritten) {
 				dispatch('done')
-				await sleep(loopInterval)
+				await sleep(typeof loop === 'number' ? loop : 1500)
 				while (currentNode.textContent !== '') {
 					currentNode.textContent = currentNode.textContent.slice(0, -1)
 					await typingInterval()
@@ -52,21 +53,18 @@
 			}
 			await typingInterval()
 		}
-		currentNode.classList.length === 1 && currentNode.nextSibling !== null
-			? currentNode.removeAttribute('class')
-			: currentNode.classList.remove('typing')
+		if (currentNode.nextSibling !== null || !cascade)
+			currentNode.classList.length == 1
+				? currentNode.removeAttribute('class')
+				: currentNode.classList.remove('typing')
 	}
 
-	const init = async () => {
-		mode === 'cascade' && elements.forEach(({ currentNode }) => (currentNode.textContent = ''))
-		for (const element of elements) {
-			mode === 'cascade' ? await typewriterEffect(element) : typewriterEffect(element)
-		}
-		dispatch('done')
-	}
-
-	const loop = async () => {
-		while (mode === 'loop') {
+	const loopMode = async () => {
+		const loopParagraphTag = node.firstChild.tagName.toLowerCase()
+		const loopParagraph = document.createElement(loopParagraphTag)
+		node.childNodes.forEach(el => el.remove())
+		node.appendChild(loopParagraph)
+		while (loop) {
 			for (const { currentNode, text } of elements) {
 				node.childNodes.forEach(el => el.remove())
 				const loopParagraphTag = currentNode.tagName.toLowerCase()
@@ -79,20 +77,53 @@
 		}
 	}
 
+	const nonLoopMode = async () => {
+		cascade && elements.forEach(({ currentNode }) => (currentNode.textContent = ''))
+		for (const element of elements) {
+			cascade ? await typewriterEffect(element) : typewriterEffect(element)
+		}
+
+		if (cascade) {
+			dispatch('done')
+		} else {
+			const { currentNode: lastElementToFinish } = elements.reduce(
+				(longestTextElement, element) => {
+					const longestTextLength = longestTextElement.text.length
+					return element.text.length > longestTextLength
+						? (longestTextElement = element)
+						: longestTextElement
+				}
+			)
+
+			const observer = new MutationObserver(mutations => {
+				mutations.forEach(mutation => {
+					const lastElementFinishedTyping = !mutation.target.classList.contains('typing')
+					if (mutation.type === 'attributes' && lastElementFinishedTyping) {
+						dispatch('done')
+					}
+				})
+			})
+
+			observer.observe(lastElementToFinish, {
+				attributes: true,
+				childList: true,
+				subtree: true
+			})
+		}
+	}
+
 	const scrambleOne = async (element) => {
 		elements.forEach(({ currentNode }) => { currentNode.textContent = randomize(currentNode) })
 		const { currentNode, text } = element;
 		const initial = [...text];
-
 		for (let i=0; i<scrambleCount; i++) {
 			currentNode.textContent = randomize(currentNode)
 			await sleep(interval)
 		}
-
 		dispatch('done');
 		currentNode.textContent = initial.join("");
 	}
-	const scramble = () => {
+	const scrambleAll = () => {
 		elements.forEach(element => scrambleOne(element))
 	}
 
@@ -100,18 +131,20 @@
 		getElements(node)
 
 		// If mode != scramble, clear the texts
-		mode != 'scramble' && elements.forEach(({ currentNode }) => currentNode.textContent = '')
+		!scramble && elements.forEach(({ currentNode }) => currentNode.textContent = '')
 
 		setTimeout(() => {
-			switch (mode) {
-				case 'loop':     loop(); break
-				case 'scramble': scramble(); break
-				default: init()
+			if (loop) {
+				loopMode()
+			} else if (scramble) {
+				scrambleAll()
+			} else {
+				nonLoopMode()
 			}
 		}, delay);
 	})
 
-	onDestroy(() => (mode = 'default'))
+	onDestroy(() => (loop = false))
 </script>
 
 <style>
@@ -137,6 +170,10 @@
 	}
 </style>
 
-<div class:cursor style="--cursor-color: {typeof cursor === 'string' ? cursor : 'black'}" bind:this={node}>
+<div
+	class:cursor
+	style="--cursor-color: {typeof cursor === 'string' ? cursor : 'black'}"
+	bind:this={node}
+>
 	<slot />
 </div>

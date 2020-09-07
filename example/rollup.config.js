@@ -29,7 +29,11 @@ const options = {
 			}
 		}),
 		commonjs(),
-		!production && serve('./'),
+		!production &&
+			serve({
+				contentBase: './',
+				port: 8080
+			}),
 		!production && livereload('./'),
 		terser()
 	]

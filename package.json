@@ -9,12 +9,13 @@
 		"type": "git",
 		"url": "https://github.com/henriquehbr/svelte-typewriter"
 	},
-	"version": "3.0.0",
+	"version": "2.1.16",
 	"main": "Typewriter.svelte",
 	"author": "Henrique Borges <henriqueborgeshbr@gmail.com>",
 	"license": "MIT",
 	"scripts": {
 		"changelog": "auto-changelog -l false -u --hide-credit && git add CHANGELOG.md",
+		"postchangelog": "cross-env HUSKY_SKIP_HOOKS=1 git commit --amend --no-edit --no-verify",
 		"start": "yarn --cwd example && yarn --cwd example run start",
 		"publish": "yarn changelog",
 		"prettier": "prettier --write \"./**/*.{svelte,js}\""
@@ -22,17 +23,18 @@
 	"husky": {
 		"hooks": {
 			"pre-commit": "yarn prettier && git add .",
-			"post-commit": "yarn changelog && HUSKY_SKIP_HOOKS=1 git commit --amend --no-edit --no-verify",
+			"post-commit": "yarn changelog",
 			"pre-push": "yarn prettier"
 		}
 	},
 	"devDependencies": {
 		"auto-changelog": "^2.2.0",
+		"cross-env": "^7.0.2",
 		"husky": "^4.2.5",
-		"prettier": "^2.0.5",
-		"prettier-plugin-svelte": "^1.1.0"
+		"prettier": "^2.1.1",
+		"prettier-plugin-svelte": "^1.2.1"
 	},
 	"dependencies": {
-		"svelte": "^3.24.0"
+		"svelte": "^3.24.1"
 	}
 }
