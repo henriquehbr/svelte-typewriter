@@ -18,10 +18,6 @@
 	const typingInterval = async () => sleep(interval[rng(0, interval.length)] || interval)
 	const randomLetter = () => String.fromCharCode(65 + Math.round(Math.random() * 50));
 
-	for (let i = 0; i < 200; i++) {
-		console.log(i, String.fromCharCode(i))
-	}
-
 	/*
 	 * Takes a word and generates a random string with the same length.
 	 * If the random string and the given word has same letters, they won't be randomized again.
