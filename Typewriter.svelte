@@ -6,7 +6,6 @@
 	export let scramble = false
 	export let cursor = true
 	export let delay = 0
-	export let scrambleCount = 20
 
 	let node
 	let elements = []
@@ -17,6 +16,22 @@
 	const rng = (min, max) => Math.floor(Math.random() * (max - min) + min)
 	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
 	const typingInterval = async () => sleep(interval[rng(0, interval.length)] || interval)
+	const randomLetter = () => String.fromCharCode(65 + Math.round(Math.random() * 50));
+
+	for (let i = 0; i < 200; i++) {
+		console.log(i, String.fromCharCode(i))
+	}
+
+	/*
+	 * Takes a word and generates a random string with the same length.
+	 * If the random string and the given word has same letters, they won't be randomized again.
+	*/
+	const randomize = (word, foundIndexes) => {
+		return [...Array(word.length).keys()].map(i => {
+			const found = (foundIndexes.includes(i) || word[i] == " ");
+			return found ? word[i] : randomLetter()
+		}).join("")
+	}
 
 	const getElements = parentElement => {
 		const treeWalker = document.createTreeWalker(parentElement, NodeFilter.SHOW_ELEMENT)
@@ -114,10 +129,23 @@
 	const scrambleMode = () => {
 		elements.forEach(async (element) => {
 			const { currentNode, text } = element
-			for (let i=0; i<scrambleCount; i++) {
-				currentNode.textContent = Math.random().toString(36).slice(2)
+			const foundIndexes = []
+			let i = 0
+
+			do {
+				currentNode.textContent = randomize(currentNode.textContent, foundIndexes)
+
+				for (let i=0; i<text.length; i++) {
+					const current = currentNode.textContent
+					if (!foundIndexes.includes(i) && text[i] === current[i]) {
+						foundIndexes.push(i)
+					}
+				}
+
+				i += 1
 				await sleep(interval)
-			}
+			} while (currentNode.textContent != text.join("") && i < 50)
+
 			dispatch('done')
 			currentNode.textContent = text.join("")
 		})
@@ -148,11 +176,9 @@
 		0% {
 			opacity: 1;
 		}
-
 		50% {
 			opacity: 0;
 		}
-
 		100% {
 			opacity: 1;
 		}
