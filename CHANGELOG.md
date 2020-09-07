@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v3.0.0...HEAD)
+#### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.11...HEAD)
 
 - docs: add links for documentation of older versions [`078d0cd`](https://github.com/henriquehbr/svelte-typewriter/commit/078d0cde9aea0094992d76f2b2fa0e11ebc58473)
 
