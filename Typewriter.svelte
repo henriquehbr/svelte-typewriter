@@ -6,7 +6,7 @@
 	export let scramble = false
 	export let cursor = true
 	export let delay = 0
-	export let scrambleCount=20
+	export let scrambleCount = 20
 
 	let node
 	let elements = []
@@ -116,14 +116,13 @@
 		elements.forEach(({ currentNode }) => { currentNode.textContent = randomize(currentNode) })
 
 		elements.forEach(async (element) => {
-			const { currentNode, text } = element;
-			const initial = [...text];
+			const { currentNode, text } = element
 			for (let i=0; i<scrambleCount; i++) {
 				currentNode.textContent = randomize(currentNode)
 				await sleep(interval)
 			}
-			dispatch('done');
-			currentNode.textContent = initial.join("");
+			dispatch('done')
+			currentNode.textContent = text.join("")
 		})
 	}
 
@@ -141,7 +140,7 @@
 			} else {
 				nonLoopMode()
 			}
-		}, delay);
+		}, delay)
 	})
 
 	onDestroy(() => (loop = false))
