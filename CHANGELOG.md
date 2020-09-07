@@ -4,8 +4,6 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.11...HEAD)
 
-> 18 July 2020
-
 - chore: add husky pre-push hook for changelog generation [`abdff18`](https://github.com/henriquehbr/svelte-typewriter/commit/abdff188ffc585936826c5377af7a25a48e81016)
 - chore: include "Unreleased" commits on changelog [`ebdaf21`](https://github.com/henriquehbr/svelte-typewriter/commit/ebdaf21b60e52ca93fb6abe46438796a162b819d)
 - lint: change printWidth from 120 to 80 [`8c48357`](https://github.com/henriquehbr/svelte-typewriter/commit/8c48357de785f241e14727dd5ba78153c3d5fe96)
