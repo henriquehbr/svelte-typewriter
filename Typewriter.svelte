@@ -126,6 +126,8 @@
 		elements.forEach(async (element) => {
 			const { currentNode, text } = element
 			const foundIndexes = []
+			const scrambleCount = typeof scramble == 'number' ? scramble * 1000 / interval : 100
+			let i = 0
 
 			do {
 				currentNode.textContent = randomize(currentNode.textContent, foundIndexes)
@@ -137,8 +139,9 @@
 					}
 				}
 
+				i += 1
 				await sleep(interval)
-			} while (currentNode.textContent != text.join(""))
+			} while (currentNode.textContent != text.join("") && i < scrambleCount)
 
 			dispatch('done')
 			currentNode.textContent = text.join("")
