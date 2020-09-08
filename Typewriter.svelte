@@ -11,25 +11,19 @@
 	let elements = []
 
 	const dispatch = createEventDispatcher()
+	const sleep = ms => new Promise(res => setTimeout(res, ms))
 
-	const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-	const rng = (min, max) => Math.floor(Math.random() * (max - min) + min)
-	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
-	const typingInterval = async () => sleep(interval[rng(0, interval.length)] || interval)
-	const randomLetter = () => String.fromCharCode(65 + Math.round(Math.random() * 50));
-
-	/*
-	 * Takes a word and generates a random string with the same length.
-	 * If the random string and the given word has same letters, they won't be randomized again.
-	*/
-	const randomize = (word, foundIndexes) => {
+	const randomString = (word, foundIndexes) => {
 		return [...Array(word.length).keys()].map(i => {
 			const found = (foundIndexes.includes(i) || word[i] == " ");
-			return found ? word[i] : randomLetter()
+			const letter = String.fromCharCode(65 + Math.round(Math.random() * 50))
+			return found ? word[i] : letter
 		}).join("")
 	}
-
+	
 	const getElements = parentElement => {
+		const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
+
 		const treeWalker = document.createTreeWalker(parentElement, NodeFilter.SHOW_ELEMENT)
 		let currentNode = treeWalker.nextNode()
 		while (currentNode) {
@@ -57,11 +51,11 @@
 				await sleep(typeof loop === 'number' ? loop : 1500)
 				while (currentNode.textContent !== '') {
 					currentNode.textContent = currentNode.textContent.slice(0, -1)
-					await typingInterval()
+					await sleep(interval)
 				}
 				return
 			}
-			await typingInterval()
+			await sleep(interval)
 		}
 		if (currentNode.nextSibling !== null || !cascade)
 			currentNode.classList.length == 1
@@ -70,16 +64,12 @@
 	}
 
 	const loopMode = async () => {
-		const loopParagraphTag = node.firstChild.tagName.toLowerCase()
-		const loopParagraph = document.createElement(loopParagraphTag)
-		node.childNodes.forEach(el => el.remove())
-		node.appendChild(loopParagraph)
 		while (loop) {
 			for (const { currentNode, text } of elements) {
-				node.childNodes.forEach(el => el.remove())
-				const loopParagraphTag = currentNode.tagName.toLowerCase()
-				const loopParagraph = document.createElement(loopParagraphTag)
+				const loopParagraph = document.createElement(currentNode.tagName)
 				loopParagraph.textContent = text.join('')
+
+				node.childNodes.forEach(el => el.remove())
 				node.appendChild(loopParagraph)
 				await typewriterEffect({ currentNode: loopParagraph, text })
 				node.childNodes.forEach(el => el.remove())
@@ -94,32 +84,24 @@
 		}
 
 		if (cascade) {
-			dispatch('done')
-		} else {
-			const { currentNode: lastElementToFinish } = elements.reduce(
-				(longestTextElement, element) => {
-					const longestTextLength = longestTextElement.text.length
-					return element.text.length > longestTextLength
-						? (longestTextElement = element)
-						: longestTextElement
-				}
-			)
-
-			const observer = new MutationObserver(mutations => {
-				mutations.forEach(mutation => {
-					const lastElementFinishedTyping = !mutation.target.classList.contains('typing')
-					if (mutation.type === 'attributes' && lastElementFinishedTyping) {
-						dispatch('done')
-					}
-				})
-			})
-
-			observer.observe(lastElementToFinish, {
-				attributes: true,
-				childList: true,
-				subtree: true
-			})
+			return dispatch('done')
 		}
+
+		const observer = new MutationObserver(mutations => {
+			mutations.forEach(mutation => {
+				const lastElementFinishedTyping = !mutation.target.classList.contains('typing')
+				if (mutation.type === 'attributes' && lastElementFinishedTyping) {
+					dispatch('done')
+				}
+			})
+		})
+
+		const lastElementToFinish = elements.sort((a, b) => b.length - a.length)[0].currentNode;
+		observer.observe(lastElementToFinish, {
+			attributes: true,
+			childList: true,
+			subtree: true
+		})
 	}
 
 	const scrambleMode = () => {
@@ -130,7 +112,7 @@
 			let i = 0
 
 			do {
-				currentNode.textContent = randomize(currentNode.textContent, foundIndexes)
+				currentNode.textContent = randomString(currentNode.textContent, foundIndexes)
 
 				for (let i=0; i<text.length; i++) {
 					const current = currentNode.textContent
@@ -170,15 +152,9 @@
 
 <style>
 	@keyframes cursorFade {
-		0% {
-			opacity: 1;
-		}
-		50% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
+		0%   { opacity: 1 }
+		50%  { opacity: 0 }
+		100% { opacity: 1 }
 	}
 
 	.cursor :global(.typing::after) {
