@@ -11,7 +11,8 @@
 	let elements = []
 
 	const dispatch = createEventDispatcher()
-	const sleep = ms => new Promise(res => setTimeout(res, ms))
+	const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
 
 	const randomString = (word, foundIndexes) => {
 		return [...Array(word.length).keys()].map(i => {
@@ -22,8 +23,6 @@
 	}
 	
 	const getElements = parentElement => {
-		const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
-
 		const treeWalker = document.createTreeWalker(parentElement, NodeFilter.SHOW_ELEMENT)
 		let currentNode = treeWalker.nextNode()
 		while (currentNode) {
