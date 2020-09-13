@@ -103,7 +103,7 @@
 	}
 
 	const scrambleMode = () => {
-		elements.forEach(async (element) => {
+		elements.forEach(async element => {
 			const { currentNode, text } = element
 			const foundIndexes = []
 			const scrambleCount = typeof scramble == 'number' ? scramble * 1000 / interval : 100
