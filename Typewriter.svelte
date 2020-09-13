@@ -16,7 +16,7 @@
 
 	const randomString = (word, foundIndexes) => 
 		[...Array(word.length).keys()].map(i => {
-			const found = (foundIndexes.includes(i) || word[i] == " ");
+			const found = (foundIndexes.includes(i) || word[i] == " ")
 			const letter = String.fromCharCode(65 + Math.round(Math.random() * 50))
 			return found ? word[i] : letter
 		}).join("")
@@ -87,10 +87,9 @@
 
 		const observer = new MutationObserver(mutations => {
 			mutations.forEach(mutation => {
-				const lastElementFinishedTyping = !mutation.target.classList.contains('typing')
-				if (mutation.type === 'attributes' && lastElementFinishedTyping) {
-					dispatch('done')
-				}
+				const removedTypingClass = mutation.type === 'attributes'
+				const lastElementFinishedTyping = removedTypingClass && !mutation.target.classList.contains('typing')
+				lastElementFinishedTyping && dispatch('done')
 			})
 		})
 
@@ -137,13 +136,13 @@
 		setTimeout(() => {
 			switch (true) {
 			    case loop:
-				loopMode()
-				break
+					loopMode()
+					break
 			    case scramble:
-				scrambleMode()
-				break
+					scrambleMode()
+					break
 			    default:
-				nonLoopMode()
+					nonLoopMode()
 			}
 		}, delay)
 	})
