@@ -14,13 +14,12 @@
 	const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
 
-	const randomString = (word, foundIndexes) => {
-		return [...Array(word.length).keys()].map(i => {
+	const randomString = (word, foundIndexes) => 
+		[...Array(word.length).keys()].map(i => {
 			const found = (foundIndexes.includes(i) || word[i] == " ");
 			const letter = String.fromCharCode(65 + Math.round(Math.random() * 50))
 			return found ? word[i] : letter
 		}).join("")
-	}
 	
 	const getElements = parentElement => {
 		const treeWalker = document.createTreeWalker(parentElement, NodeFilter.SHOW_ELEMENT)
