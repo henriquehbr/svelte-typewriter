@@ -134,15 +134,12 @@
 		!scramble && elements.forEach(({ currentNode }) => currentNode.textContent = '')
 
 		setTimeout(() => {
-			switch (true) {
-			    case loop:
-					loopMode()
-					break
-			    case scramble:
-					scrambleMode()
-					break
-			    default:
-					nonLoopMode()
+			if (loop) {
+				loopMode()
+			} else if (scramble) {
+				scrambleMode()
+			} else {
+				nonLoopMode()
 			}
 		}, delay)
 	})
