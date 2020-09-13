@@ -94,7 +94,7 @@
 			})
 		})
 
-		const lastElementToFinish = elements.sort((a, b) => b.length - a.length)[0].currentNode;
+		const lastElementToFinish = elements.sort((a, b) => b.length - a.length)[0].currentNode
 		observer.observe(lastElementToFinish, {
 			attributes: true,
 			childList: true,
