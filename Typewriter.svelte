@@ -11,8 +11,11 @@
 	let elements = []
 
 	const dispatch = createEventDispatcher()
+	
 	const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+	const rng = (min, max) => Math.floor(Math.random() * (max - min) + min)
 	const hasSingleTextNode = el => el.childNodes.length === 1 && el.childNodes[0].nodeType === 3
+	const typingInterval = async () => sleep(interval[rng(0, interval.length)] || interval)
 
 	const randomString = (word, foundIndexes) => 
 		[...Array(word.length).keys()].map(i => {
@@ -49,11 +52,11 @@
 				await sleep(typeof loop === 'number' ? loop : 1500)
 				while (currentNode.textContent !== '') {
 					currentNode.textContent = currentNode.textContent.slice(0, -1)
-					await sleep(interval)
+					await typingInterval()
 				}
 				return
 			}
-			await sleep(interval)
+			await typingInterval()
 		}
 		if (currentNode.nextSibling !== null || !cascade)
 			currentNode.classList.length == 1
