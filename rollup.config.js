@@ -19,7 +19,9 @@ const plugins = [
 	}),
 	commonjs(),
 	terser(),
-	analyze()
+	analyze({
+		summaryOnly: true
+	})
 ]
 
 /** @type {(format: 'es' | 'umd') => import('rollup').RollupOptions} */
