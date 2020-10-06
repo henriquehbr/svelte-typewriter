@@ -5,7 +5,8 @@ All notable changes to this project will be documented in this file. Dates are d
 #### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.17...HEAD)
 
 - docs: add jsdoc annotations to animation modes [`82e8504`](https://github.com/henriquehbr/svelte-typewriter/commit/82e85041ce4880df846fcd02802a0c30b2ebf65a)
-- feat: implement `delay` prop [`22fc86d`](https://github.com/henriquehbr/svelte-typewriter/commit/22fc86df8454551f0d35dba0eb87b28fe04fdd6f)
+- feat: implement `delay` prop [`86bd9b5`](https://github.com/henriquehbr/svelte-typewriter/commit/86bd9b5ec1561ddf00896c0055c511646513f672)
+- docs: add `delay` prop details [`ae22b08`](https://github.com/henriquehbr/svelte-typewriter/commit/ae22b084da5f5103e291943cfa68c5db8a2c1205)
 - chore: remove changelog "Unreleased" section on `publish` script [`5f9c5fa`](https://github.com/henriquehbr/svelte-typewriter/commit/5f9c5fa540d2ff6261a7a843c6d032ec567a853c)
 
 #### [v2.1.17](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.16...v2.1.17)
