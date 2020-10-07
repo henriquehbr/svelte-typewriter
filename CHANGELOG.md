@@ -4,10 +4,12 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### [Unreleased](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.17...HEAD)
 
+- Merge branch main into feat/delay [`94df134`](https://github.com/henriquehbr/svelte-typewriter/commit/94df13438d27e9b308cbb6c6ab5c5c0018cf8cc3)
 - docs: add jsdoc annotations to animation modes [`82e8504`](https://github.com/henriquehbr/svelte-typewriter/commit/82e85041ce4880df846fcd02802a0c30b2ebf65a)
 - feat: implement `delay` prop [`86bd9b5`](https://github.com/henriquehbr/svelte-typewriter/commit/86bd9b5ec1561ddf00896c0055c511646513f672)
-- docs: add `delay` prop details [`ae22b08`](https://github.com/henriquehbr/svelte-typewriter/commit/ae22b084da5f5103e291943cfa68c5db8a2c1205)
+- docs: add `delay` prop details [`6a155ee`](https://github.com/henriquehbr/svelte-typewriter/commit/6a155eedf5c769aebb3a6e130ddef9b723f220b0)
 - chore: remove changelog "Unreleased" section on `publish` script [`5f9c5fa`](https://github.com/henriquehbr/svelte-typewriter/commit/5f9c5fa540d2ff6261a7a843c6d032ec567a853c)
+- fix: solve regression in package.json `files` field #18 [`c4eda14`](https://github.com/henriquehbr/svelte-typewriter/commit/c4eda143575e22990d0678094e6c640722f63fca)
 
 #### [v2.1.17](https://github.com/henriquehbr/svelte-typewriter/compare/v2.1.16...v2.1.17)
 

@@ -17,7 +17,7 @@
 	"license": "MIT",
 	"files": [
 		"lib",
-		"src/Typewriter.svelte"
+		"src"
 	],
 	"scripts": {
 		"changelog": "auto-changelog -l false --hide-credit",
