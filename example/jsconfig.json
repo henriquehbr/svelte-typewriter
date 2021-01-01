@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@example/*": ["./src/*"],
+      "svelte-typewriter": ["../src/Typewriter.svelte"]
+    }
+  }
+}

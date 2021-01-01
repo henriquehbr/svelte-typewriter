@@ -263,6 +263,18 @@ error-ex@^1.3.1:
   dependencies:
     is-arrayish "^0.2.1"
 
+esbuild-svelte@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/esbuild-svelte/-/esbuild-svelte-0.4.0.tgz#d95aa5b3ffd6907ab179a342221b56f36ef04c8b"
+  integrity sha512-CQ9ql0kjVyixRJAmA1tItut8IPg8w0+UJW9PpslRWZd1RVJUcyfzOOMgeURzRXHwAFir5aR8FVwH8I1eWEMtNg==
+  dependencies:
+    svelte "^3.31.0"
+
+esbuild@^0.8.27:
+  version "0.8.27"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.27.tgz#8f7aa7d65229856c6ad11961b01b3e302fcb5e84"
+  integrity sha512-cY2i08EHYHNg0o748J+X0yBTcCO7DIZSxLWJ/6OymmML0Y2X6qkINfZcoiq5GE6EcLIfwyaZpI60JY6iBJWj5w==
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"

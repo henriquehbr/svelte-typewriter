@@ -9,10 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- chore: create repro environment (evanw/esbuild#634) [`7687dfd`](https://github.com/henriquehbr/svelte-typewriter/commit/7687dfde8d8e7cb409dbc03cbeb42d1bfdf2aad8)
 - refactor!: remove scramble mode [`1c8ece8`](https://github.com/henriquehbr/svelte-typewriter/commit/1c8ece82abd203fb9132ca5427aab78f7a71cce8)
 - refactor: remove unused parent element references (#35) [`d5bffa0`](https://github.com/henriquehbr/svelte-typewriter/commit/d5bffa001fe41d08a580f257abc98eefd0342a5c)
 - refactor(helpers): avoid circular dependencies (#35) [`a501778`](https://github.com/henriquehbr/svelte-typewriter/commit/a501778dd5ffd51d1303484321bcaa8de69558f9)
-- refactor: remove unneeded types (#35) [`5d90387`](https://github.com/henriquehbr/svelte-typewriter/commit/5d90387a517563ffafa46990d5fae339f612b84b)
+- refactor: remove unneeded types (#35) [`164164b`](https://github.com/henriquehbr/svelte-typewriter/commit/164164b10cdd4b3f334a50ec564d19d869d41d48)
 
 ## [v2.4.5](https://github.com/henriquehbr/svelte-typewriter/compare/v2.4.4...v2.4.5) - 2020-12-24
 

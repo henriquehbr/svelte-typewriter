@@ -1,0 +1,24 @@
+/* src/Typewriter.esbuild-svelte-fake-css */
+@keyframes svelte-oiwkiz-cursorFade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.typewriter-container.svelte-oiwkiz > *:not(.typing):not(.finished-typing) {
+  display: none;
+}
+.typewriter-container.svelte-oiwkiz .finished-typing::after {
+  content: none;
+}
+.cursor.svelte-oiwkiz .typing::after {
+  content: "\258c";
+  display: inline-block;
+  color: var(--cursor-color);
+  animation: svelte-oiwkiz-cursorFade 1.25s infinite;
+}
+.delay.svelte-oiwkiz {
+  visibility: hidden;
+}

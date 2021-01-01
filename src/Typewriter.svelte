@@ -1,6 +1,6 @@
 <script>
 	import { onMount, beforeUpdate, onDestroy, createEventDispatcher } from 'svelte'
-	import { typewriter } from './core/modes'
+	import { typewriter } from './modes'
 
 	export let interval = 30
 	export let cascade = false
@@ -12,9 +12,9 @@
 	let isMounted = false
 	let reinit = {}
 
-	$: options = { interval, cascade, loop, loopRandom, cursor, delay, dispatch }
-
 	const dispatch = createEventDispatcher()
+  
+  $: options = { interval, cascade, loop, loopRandom, cursor, delay, dispatch }
 
 	beforeUpdate(() => isMounted && (reinit = {}))
 

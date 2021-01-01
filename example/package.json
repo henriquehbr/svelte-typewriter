@@ -3,25 +3,28 @@
 	"version": "1.0.0",
 	"main": "src/index.js",
 	"license": "MIT",
+	"type": "module",
 	"scripts": {
 		"dev": "rollup -cw",
-		"build": "rimraf build && rollup -c",
-		"start": "sirv public -q -s"
+		"build": "rimraf public/build && node build",
+		"start": "sirv public -s"
 	},
 	"devDependencies": {
 		"@rollup/plugin-alias": "^3.1.1",
 		"@rollup/plugin-commonjs": "^17.0.0",
 		"@rollup/plugin-node-resolve": "^11.0.1",
+		"esbuild": "^0.8.27",
+		"esbuild-svelte": "^0.4.0",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.35.1",
 		"rollup-plugin-analyzer": "^4.0.0",
 		"rollup-plugin-hot": "^0.1.1",
 		"rollup-plugin-svelte-hot": "^0.13.0",
 		"rollup-plugin-terser": "^7.0.2",
+		"sirv-cli": "^1.0.10",
 		"svelte": "^3.31.0"
 	},
 	"dependencies": {
-		"sirv-cli": "^1.0.10",
 		"svelte-loadable": "^1.5.1",
 		"svelte-routing": "^1.4.2"
 	}
