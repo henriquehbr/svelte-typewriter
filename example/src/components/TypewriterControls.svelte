@@ -5,10 +5,11 @@
 	export let cascade = false
 	export let loop = false
 	export let loopRandom = false
+  export let endLoop = false
 	export let cursor = true
   export let delay = 0
 
-  $: props = { interval, cascade, loop, loopRandom, cursor, delay }
+  $: props = { interval, cascade, loop, loopRandom, endLoop, cursor, delay }
 </script>
 
 <b>Interval:</b>

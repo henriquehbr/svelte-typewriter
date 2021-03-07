@@ -17,6 +17,17 @@
 <hr>
 
 <pre>
+  &lt;Typewriter loop endLoop /&gt;
+</pre>
+
+<TypewriterControls loop endLoop>
+  <slot />
+</TypewriterControls>
+
+ 
+<hr>
+
+<pre>
   &lt;Typewriter loop interval=&lcub;80&rcub; /&gt;
 </pre>
 
@@ -68,4 +79,4 @@
   on:done={() => console.log('Hello World!')}
 >
   <slot />
-</TypewriterControls>
+</TypewriterControls> 
