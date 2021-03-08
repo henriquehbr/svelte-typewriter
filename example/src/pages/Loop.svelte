@@ -5,7 +5,7 @@
 <h1>Loop mode</h1>
 
 <hr>
-<!-- 
+ 
 <pre>
   &lt;Typewriter loop /&gt;
 </pre>
@@ -14,7 +14,7 @@
   <slot />
 </TypewriterControls>
 
-<hr> -->
+<hr> 
 
 <pre>
   &lt;Typewriter loop loopOnce /&gt;
@@ -24,7 +24,7 @@
   <slot />
 </TypewriterControls>
 
-<!--  
+ 
 <hr>
 
 <pre>
@@ -80,4 +80,4 @@
 >
   <slot />
 </TypewriterControls> 
--->
+ 

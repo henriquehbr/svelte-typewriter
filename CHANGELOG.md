@@ -20,12 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor!: remove scramble mode [`1c8ece8`](https://github.com/Kylescottw/svelte-typewriter/commit/1c8ece82abd203fb9132ca5427aab78f7a71cce8)
 - chore(example): remove old build script [`332225f`](https://github.com/Kylescottw/svelte-typewriter/commit/332225fee2f01c33c1470f925a162916054f705e)
 - refactor: remove unused parent element references (#35) [`d5bffa0`](https://github.com/Kylescottw/svelte-typewriter/commit/d5bffa001fe41d08a580f257abc98eefd0342a5c)
-- refactor: prop name [`4c34b7d`](https://github.com/Kylescottw/svelte-typewriter/commit/4c34b7d0ac9a9ec68d53645a1f0b3e27ce3b150d)
+- refactor: prop name [`4048355`](https://github.com/Kylescottw/svelte-typewriter/commit/4048355e589c7252600b77bea64de7ab37e9ab6c)
 - chore(example): remove unnecessary dependency [`9cb6e69`](https://github.com/Kylescottw/svelte-typewriter/commit/9cb6e6911e505d482fa2efea1f91f4bf6b5a596f)
 - refactor(helpers): avoid circular dependencies (#35) [`a501778`](https://github.com/Kylescottw/svelte-typewriter/commit/a501778dd5ffd51d1303484321bcaa8de69558f9)
 - refactor(example): add alias for svelte-typewriter src [`0be8d46`](https://github.com/Kylescottw/svelte-typewriter/commit/0be8d462b19a8cddc872749b427cc16a7d65547a)
 - refactor: remove unneeded types (#35) [`164164b`](https://github.com/Kylescottw/svelte-typewriter/commit/164164b10cdd4b3f334a50ec564d19d869d41d48)
 - chore(example): remove svelte-preprocessor-esbuild (lukeed/svelte-preprocessor-esbuild#4) [`69e660f`](https://github.com/Kylescottw/svelte-typewriter/commit/69e660fb425b360a8de552f3e0e1cf7774258436)
+- cleanup: example loop page [`4a1db38`](https://github.com/Kylescottw/svelte-typewriter/commit/4a1db3807a7f4a3f3b2748aa66fbad30c170772e)
 - chore: remove redundant script `example:start` from package.json [`5d6d34e`](https://github.com/Kylescottw/svelte-typewriter/commit/5d6d34ed99810288fba2b40a9527aea48ea6f0ff)
 
 ## [v2.4.5](https://github.com/Kylescottw/svelte-typewriter/compare/v2.4.4...v2.4.5) - 2020-12-24
