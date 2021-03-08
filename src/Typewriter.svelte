@@ -6,6 +6,7 @@
 	export let cascade = false
 	export let loop = false
 	export let loopRandom = false
+	export let loopOnce = false
 	export let cursor = true
 	export let delay = 0
 
@@ -14,7 +15,7 @@
 
 	const dispatch = createEventDispatcher()
   
-  $: options = { interval, cascade, loop, loopRandom, cursor, delay, dispatch }
+  $: options = { interval, cascade, loop, loopRandom, loopOnce, cursor, delay, dispatch }
 
 	beforeUpdate(() => isMounted && (reinit = {}))
 

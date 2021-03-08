@@ -5,7 +5,7 @@
 <h1>Loop mode</h1>
 
 <hr>
-
+ 
 <pre>
   &lt;Typewriter loop /&gt;
 </pre>
@@ -14,6 +14,17 @@
   <slot />
 </TypewriterControls>
 
+<hr> 
+
+<pre>
+  &lt;Typewriter loop loopOnce /&gt;
+</pre>
+
+<TypewriterControls loop loopOnce>
+  <slot />
+</TypewriterControls>
+
+ 
 <hr>
 
 <pre>
@@ -54,7 +65,7 @@
   <slot />
 </TypewriterControls>
 
-<hr>
+<hr> 
 
 <pre>
   &lt;Typewriter loop interval=&lcub;80&rcub; delay=&lcub;3000&rcub; cursor='limegreen' on:done=&lcub;() =&gt; console.log('Hello World!')&rcub; /&gt;
@@ -68,4 +79,5 @@
   on:done={() => console.log('Hello World!')}
 >
   <slot />
-</TypewriterControls>
+</TypewriterControls> 
+ 

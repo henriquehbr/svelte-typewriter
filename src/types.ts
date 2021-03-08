@@ -8,6 +8,8 @@ interface TypewriterOptions {
 	cascade: boolean
 	loop: boolean | number
 	loopRandom: boolean | number
+	loopOnce: boolean
+	stopLoop: boolean
 	cursor: boolean | string
 	delay: number
 	dispatch: (type: string, detail?: any) => void
