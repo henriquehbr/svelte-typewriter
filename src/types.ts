@@ -8,7 +8,7 @@ interface TypewriterOptions {
 	cascade: boolean
 	loop: boolean | number
 	loopRandom: boolean | number
-	endLoop: boolean
+	loopOnce: boolean
 	stopLoop: boolean
 	cursor: boolean | string
 	delay: number

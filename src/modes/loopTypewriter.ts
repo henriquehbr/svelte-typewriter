@@ -14,9 +14,9 @@ const loopTypewriter: TypewriterEffectFn = async ({ currentNode, text }, options
 }
 
 const mode: TypewriterModeFn = async (elements, options) => {
-	if (options.endLoop) {
+	if (options.loopOnce) {
 		asyncForEach(elements, async (element: any, idx: number) => {
-			let stopLoop = options.endLoop ? elements.length - 1 === idx : false
+			let stopLoop = options.loopOnce ? elements.length - 1 === idx : false
 			await loopTypewriter(element, { ...options, stopLoop })
 		})
 	} else {

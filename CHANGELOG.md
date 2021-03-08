@@ -15,11 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - build: migrate from rollup to esbuild (#35) [`25b15be`](https://github.com/Kylescottw/svelte-typewriter/commit/25b15be1170638d5068cc0072864790128311774)
 - build: remove rollup [`5b7d8aa`](https://github.com/Kylescottw/svelte-typewriter/commit/5b7d8aab39a3a9534393aaaa0a8270b049a4c971)
+- feat: end loop [`c008d69`](https://github.com/Kylescottw/svelte-typewriter/commit/c008d69b87a32cc52f6125666db560f1403bf2a6)
 - refactor: convert example project to typescript (#35) [`74f6d59`](https://github.com/Kylescottw/svelte-typewriter/commit/74f6d59ae3f3d1ce2a3c701084f8506e0e51d7e0)
 - refactor!: remove scramble mode [`1c8ece8`](https://github.com/Kylescottw/svelte-typewriter/commit/1c8ece82abd203fb9132ca5427aab78f7a71cce8)
-- feat: end loop [`ab1d0fd`](https://github.com/Kylescottw/svelte-typewriter/commit/ab1d0fd770700af1d07f26c06589a5cec78d2ec9)
 - chore(example): remove old build script [`332225f`](https://github.com/Kylescottw/svelte-typewriter/commit/332225fee2f01c33c1470f925a162916054f705e)
 - refactor: remove unused parent element references (#35) [`d5bffa0`](https://github.com/Kylescottw/svelte-typewriter/commit/d5bffa001fe41d08a580f257abc98eefd0342a5c)
+- refactor: prop name [`4c34b7d`](https://github.com/Kylescottw/svelte-typewriter/commit/4c34b7d0ac9a9ec68d53645a1f0b3e27ce3b150d)
 - chore(example): remove unnecessary dependency [`9cb6e69`](https://github.com/Kylescottw/svelte-typewriter/commit/9cb6e6911e505d482fa2efea1f91f4bf6b5a596f)
 - refactor(helpers): avoid circular dependencies (#35) [`a501778`](https://github.com/Kylescottw/svelte-typewriter/commit/a501778dd5ffd51d1303484321bcaa8de69558f9)
 - refactor(example): add alias for svelte-typewriter src [`0be8d46`](https://github.com/Kylescottw/svelte-typewriter/commit/0be8d462b19a8cddc872749b427cc16a7d65547a)
