@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - build: remove rollup [`5b7d8aa`](https://github.com/henriquehbr/svelte-typewriter/commit/5b7d8aab39a3a9534393aaaa0a8270b049a4c971)
 - refactor: convert example project to typescript (#35) [`74f6d59`](https://github.com/henriquehbr/svelte-typewriter/commit/74f6d59ae3f3d1ce2a3c701084f8506e0e51d7e0)
 - refactor!: remove scramble mode [`1c8ece8`](https://github.com/henriquehbr/svelte-typewriter/commit/1c8ece82abd203fb9132ca5427aab78f7a71cce8)
+- chore: setup reproductible issue environment [`fde3ba5`](https://github.com/henriquehbr/svelte-typewriter/commit/fde3ba5971e3d29716d8f07cf5b6e899c005866d)
 - chore(example): remove old build script [`332225f`](https://github.com/henriquehbr/svelte-typewriter/commit/332225fee2f01c33c1470f925a162916054f705e)
 - refactor: remove unused parent element references (#35) [`d5bffa0`](https://github.com/henriquehbr/svelte-typewriter/commit/d5bffa001fe41d08a580f257abc98eefd0342a5c)
 - chore(example): remove unnecessary dependency [`9cb6e69`](https://github.com/henriquehbr/svelte-typewriter/commit/9cb6e6911e505d482fa2efea1f91f4bf6b5a596f)
@@ -24,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor(example): add alias for svelte-typewriter src [`0be8d46`](https://github.com/henriquehbr/svelte-typewriter/commit/0be8d462b19a8cddc872749b427cc16a7d65547a)
 - refactor: remove unneeded types (#35) [`164164b`](https://github.com/henriquehbr/svelte-typewriter/commit/164164b10cdd4b3f334a50ec564d19d869d41d48)
 - chore(example): remove svelte-preprocessor-esbuild (lukeed/svelte-preprocessor-esbuild#4) [`69e660f`](https://github.com/henriquehbr/svelte-typewriter/commit/69e660fb425b360a8de552f3e0e1cf7774258436)
-- chore: remove redundant script `example:start` from package.json [`51b5f4c`](https://github.com/henriquehbr/svelte-typewriter/commit/51b5f4c5e8f85148e79ce82ab2845e91f3392d97)
+- chore: remove redundant script `example:start` from package.json [`5d6d34e`](https://github.com/henriquehbr/svelte-typewriter/commit/5d6d34ed99810288fba2b40a9527aea48ea6f0ff)
 
 ## [v2.4.5](https://github.com/henriquehbr/svelte-typewriter/compare/v2.4.4...v2.4.5) - 2020-12-24
 

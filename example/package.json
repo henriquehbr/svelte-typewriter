@@ -4,10 +4,12 @@
 	"main": "src/index.js",
 	"license": "MIT",
 	"scripts": {
-		"build": "rimraf public/build && node --experimental-specifier-resolution=node build",
+		"dev": "vite",
+		"build": "vite build",
 		"start": "sirv public -s"
 	},
 	"devDependencies": {
+		"@svitejs/vite-plugin-svelte": "^0.10.0",
 		"@tsconfig/svelte": "^1.0.10",
 		"esbuild": "^0.8.29",
 		"esbuild-svelte": "^0.4.0",
@@ -16,7 +18,8 @@
 		"slash": "^3.0.0",
 		"svelte": "^3.31.1",
 		"svelte-check": "^1.1.26",
-		"svelte-preprocess": "^4.6.1"
+		"svelte-preprocess": "^4.6.1",
+		"vite": "^2.0.5"
 	},
 	"dependencies": {
 		"svelte-loadable": "^1.5.1",
